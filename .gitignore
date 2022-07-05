@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+
+# if a build was created in the /client
+build
