@@ -15,6 +15,10 @@ const creatorSchema = new Schema(
             type: String,
             required: true
         },
+        url: {
+            type: String,
+            required: true
+        },
         tier1: [
             {
                 type: Schema.Types.ObjectId,

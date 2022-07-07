@@ -13,12 +13,14 @@ const blogPostSchema = new Schema(
         },
         blogText: {
             type: String,
-            required: "Can't leave blank!"
+            required: true
         },
-        comments: {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
-        }
+        comments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Comment'
+            }
+        ]
     },
     {
         toJSON: {

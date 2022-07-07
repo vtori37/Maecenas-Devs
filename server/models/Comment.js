@@ -5,7 +5,7 @@ const replySchema = new Schema(
     {
         replyText: {
             type: String,
-            required: "Can't leave blank!",
+            required: true,
             minlength: 1,
             maxlength: 280
         },
@@ -25,7 +25,7 @@ const commentSchema = new Schema (
     {
         commentText: {
             type: String,
-            required: "Can't leave blank!",
+            required: true,
             minlength: 1,
             maxlength: 280
         },
