@@ -17,6 +17,7 @@ const BlogPost = (props) => {
     return <div>Loading...</div>;
   }
 
+  //blogPost.map
   return (
     <div>
       <div className="card mb-3">
@@ -33,5 +34,7 @@ const BlogPost = (props) => {
     </div>
   );
 };
+
+//blog Post, comment texts form users, replies to comments
 
 export default BlogPost;
