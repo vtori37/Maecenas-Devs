@@ -31,6 +31,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// function App() {
+//   return (
+//     <div className="background">
+//     <Header></Header>
+//     <About></About>
+//     </div>
+//   );
+// }
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -69,7 +77,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-  );
-}
+  )};
 
-export default App;
+
+ export default App;
