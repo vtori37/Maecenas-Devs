@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const creatorSchema = new Schema(
     {
-        name: {
+        creatorName: {
             type: String,
             required: true,
             trim: true
