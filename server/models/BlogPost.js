@@ -24,7 +24,7 @@ const blogPostSchema = new Schema(
     },
     {
         toJSON: {
-            virtuals: ture
+            virtuals: true
         }
     }
 );
