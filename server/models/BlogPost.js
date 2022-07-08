@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
+const commentSchema = require('./Comment');
 
 const blogPostSchema = new Schema(
     {
-        name: {
+        creatorName: {
             type: String,
             required: true
         },
@@ -15,12 +16,7 @@ const blogPostSchema = new Schema(
             type: String,
             required: true
         },
-        comments: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Comment'
-            }
-        ]
+        comments: [commentSchema]
     },
     {
         toJSON: {
