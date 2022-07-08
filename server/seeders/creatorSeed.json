@@ -1,6 +1,6 @@
 [
     {
-        "name": "Creator 1",
+        "creatorName": "Creator 1",
         "about": "This is creator 1, they were born here and now they live there.",
         "specialties": "HTML, CSS, JavaScript",
         "url": "http://blahblah.com",
@@ -10,7 +10,7 @@
         "blogPost": []
     },
     {
-        "name": "Creator 2",
+        "creatorName": "Creator 2",
         "about": "This is creator 2, they were born here and now they live there.",
         "specialties": "Node.js, Tailwind, React",
         "url": "http://blahblah2.com",
@@ -20,7 +20,7 @@
         "blogPost": []
     },
     {
-        "name": "Creator 3",
+        "creatorName": "Creator 3",
         "about": "This is creator 3, they were born here and now they live there.",
         "specialties": "MongoDB, Mongoose, noSQL",
         "url": "http://blahblah3.com",
