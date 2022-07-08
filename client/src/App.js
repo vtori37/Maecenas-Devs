@@ -4,12 +4,12 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Login from './pages/Login';
 import About from './pages/About';
-import BlogPost from './pages/BlogPage';
-import Creators from './pages/Creators';
-import Signup from './pages/Signup';
-import Home from './pages/Home';
+import BlogPage from './pages/BlogPage';
+// import Login from './pages/Login';
+// import Creators from './pages/Creators';
+// import Signup from './pages/Signup';
+// import Home from './pages/Home';
 
 
 const httpLink = createHttpLink({
@@ -44,36 +44,37 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
           <div className="container">
+          <Header />
             <Routes>
               <Route 
                 path="/" 
-                element={<Home />} 
+                element={<About />} 
               />
-              <Route 
+              {/* <Route 
+                path="/" 
+                element={<Home />} 
+              /> */}
+              {/* <Route 
                 path="/login" 
                 element={<Login />} 
-              />
-              <Route 
+              /> */}
+              {/* <Route 
                 path="/signup" 
                 element={<Signup />} 
               />
               <Route 
                 path="/Creators" 
                 element={<Creators />} 
-              />
+              /> */}
               <Route 
-                path="/blogPost/:id" 
-                element={<BlogPost />} 
-              />
-              <Route 
-                path="*" 
-                element={<About />} 
-              />
+                path="/blogPage" 
+                element={<BlogPage banana={"Jelly"} spots={"balloon"} />} 
+              /> 
+              {/* Wild card * is used for "No Match" page */}
             </Routes>
-          </div>
           <Footer />
+          </div>
         </div>
       </Router>
     </ApolloProvider>
