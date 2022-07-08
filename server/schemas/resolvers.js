@@ -97,13 +97,12 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addReply: async (parent, { blogId, commentId, replyText }, context) => {
+        addReply: async (parent, { blogId, commentId, replyText, username }, context) => {
             if (context.user) {
                 const updatedBlogPost = await BlogPost.findOneAndUpdate(
                     { _id: blogId },
-                    { $addToSet: { "comments.$[_id]": { replies: { replyText, username: context.user.username } } } },
-                    { arrayFilters: [ { _id: commentId } ] },
-                    { new: true, runValidators: true }
+                    { $push: { 'comments.$[element].replies': { replyText, username } } },
+                    { arrayFilters: [{ 'element._id': commentId }], new: true, runValidators: true }
                 );
                 return updatedBlogPost;
             }
