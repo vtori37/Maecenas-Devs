@@ -6,6 +6,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
+                console.log(context.user);
                 const user = await User.findById(context.user._id)
                     .select('-__v -password')
                     .populate('comments');
