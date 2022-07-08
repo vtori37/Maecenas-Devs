@@ -1,28 +1,24 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Creator, Comment, BlogPost } = require('../models');
+const { User, Creator, BlogPost } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-                console.log(context.user);
                 const user = await User.findById(context.user._id)
-                    .select('-__v -password')
-                    .populate('comments');
+                    .select('-__v -password');
                 return user;
             }
             throw new AuthenticationError('Not logged in');
         },
         users: async () => {
             return User.find()
-                .select('-__v -password')
-                .populate('comments');
+                .select('-__v -password');
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
-                .select('-__v -password')
-                .populate('comments');
+                .select('-__v -password');
         },
         creators: async () => {
             return Creator.find()
@@ -87,22 +83,22 @@ const resolvers = {
             );
             return blogpost;
         },
-        addComment: async (parent, { blogId, commentText, username }, context) => {
+        addComment: async (parent, { blogId, commentText }, context) => {
             if (context.user) {
                 const updatedBlogPost = await BlogPost.findOneAndUpdate(
                     { _id: blogId },
-                    { $push: { comments: { commentText, username } } },
+                    { $push: { comments: { commentText, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
                 return updatedBlogPost;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addReply: async (parent, { blogId, commentId, replyText, username }, context) => {
+        addReply: async (parent, { blogId, commentId, replyText }, context) => {
             if (context.user) {
                 const updatedBlogPost = await BlogPost.findOneAndUpdate(
                     { _id: blogId },
-                    { $push: { 'comments.$[element].replies': { replyText, username } } },
+                    { $push: { 'comments.$[element].replies': { replyText, username: context.user.username } } },
                     { arrayFilters: [{ 'element._id': commentId }], new: true, runValidators: true }
                 );
                 return updatedBlogPost;

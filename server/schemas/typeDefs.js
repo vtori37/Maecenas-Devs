@@ -66,8 +66,8 @@ const typeDefs = gql`
         addCreator(creatorName: String!, about: String!, specialties: String!, url: String!): Creator
         addSub(creatorName: String!): Creator
         addBlogPost(creatorName: String!, blogText: String!): BlogPost
-        addComment(blogId: ID!, commentText: String!, username: String!): BlogPost
-        addReply(blogId: ID!, commentId: ID!, replyText: String!, username: String!): BlogPost
+        addComment(blogId: ID!, commentText: String!): BlogPost
+        addReply(blogId: ID!, commentId: ID!, replyText: String!): BlogPost
     }
 `;
 
