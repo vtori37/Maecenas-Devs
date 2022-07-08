@@ -26,7 +26,12 @@ const blogPostSchema = new Schema(
 );
 
 blogPostSchema.virtual('commentCount').get(function() {
-    return this.comments.length;
+    let count = 0;
+    this.comments.forEach(element => {
+        element.replies.forEach(element => count++);
+        count ++;
+    });
+    return count;
 });
 
 const BlogPost = model('BlogPost', blogPostSchema);

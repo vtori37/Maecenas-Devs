@@ -39,6 +39,11 @@ const commentSchema = new Schema (
             required: true
         },
         replies: [replySchema]
+    },
+    {
+        toJSON: {
+            virtuals: true
+        }
     }
 );
 
