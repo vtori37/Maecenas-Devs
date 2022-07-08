@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './pages/About';
 import BlogPage from './pages/BlogPage';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 // import Creators from './pages/Creators';
 // import Signup from './pages/Signup';
 // import Home from './pages/Home';
@@ -55,10 +55,10 @@ function App() {
                 path="/" 
                 element={<Home />} 
               /> */}
-              {/* <Route 
+              <Route 
                 path="/login" 
                 element={<Login />} 
-              /> */}
+              />
               {/* <Route 
                 path="/signup" 
                 element={<Signup />} 
