@@ -7,11 +7,15 @@ db.once('open', async () => {
     const blogPosts = await BlogPost.insertMany([
         { 
             creatorName: "Beginner's Guide to HTML",
-            blogText: "Lorem ipsum blah blah blah"
+            blogText: "Just getting started?"
         },
         {
             creatorName: "Beginner's Guide to CSS!",
-            blogText: "CSS is how to style your page!"
+            blogText: "CSS is how to style your page!!!"
+        },
+        {
+            creatorName: "Beginner's Guide to React!",
+            blogText: "React will change how you see frontend forever!!!"
         }
     ]);
 
@@ -28,7 +32,7 @@ db.once('open', async () => {
             tier1: [],
             tier2: [],
             tier3: [],
-            blogPost: blogPosts[0]
+            blogPosts: blogPosts[0]._id
         },
         {
             creatorName: "Creator 2",
@@ -38,7 +42,7 @@ db.once('open', async () => {
             tier1: [],
             tier2: [],
             tier3: [],
-            blogPost: blogPosts[1]
+            blogPosts: blogPosts[1]._id
         },
         {
             creatorName: "Creator 3",
@@ -48,7 +52,7 @@ db.once('open', async () => {
             tier1: [],
             tier2: [],
             tier3: [],
-            blogPost: blogPosts[2]
+            blogPosts: blogPosts[2]._id
         }
 
     ]);
