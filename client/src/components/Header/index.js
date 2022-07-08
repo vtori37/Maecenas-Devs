@@ -4,18 +4,17 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import "../../index.css";
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-
-const Header = () => {
-  const logout = event => {
-    event.preventDefault();
-    Auth.logout();
-
-
 import logo from '../../assets/images/favicon-copy.ico'
 
 
 function Header() {
-    return (
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
+  return (
         <>
   <Navbar collapseOnSelect expand="lg" className="gradient-teal-fill">
     <Container className='nav-text'>
@@ -35,13 +34,12 @@ function Header() {
               </>
             ) : (
               <>
-                <Nav.Link to="/login">Login</Nav.Link>
-                <Nav.Link to="/signup">Signup</Nav.Link>
+                <Nav.Link as={Link} to="/Login"><span className='nav-text'>Login/Logout</span></Nav.Link>
+                <Nav.Link as={Link} to="/Signup"><span className='nav-text'>Signup</span></Nav.Link>
+                
               </>
             )}
       <Nav.Link as={Link} to="/contact"><span className='nav-text'>Contact</span></Nav.Link>
-      {/* <Nav.Link as={Link} to="/Login"><span className='nav-text'>Login/Logout</span></Nav.Link>
-      <Nav.Link as={Link} to="/Signup"><span className='nav-text'>Signup</span></Nav.Link> */}
     </Nav>
     </Navbar.Collapse>
     </Container>
