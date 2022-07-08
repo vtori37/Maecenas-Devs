@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+<<<<<<< HEAD
 export const QUERY_BLOGPOSTS = gql`
   query blogPosts($username: String) {
     blogPosts(username: $username) {
@@ -74,4 +75,14 @@ export const QUERY_ME_BASIC = gql`
       }
     }
   }
+=======
+export const QUERY_USER = gql`
+    {
+        user {
+            _id
+            username
+            email
+        }
+    }
+>>>>>>> feature/backend-develop
 `;
