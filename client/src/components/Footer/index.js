@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <footer className="gradient-teal-fill w-100 mt-auto bg-secondary p-4 footer">
       <div className="container">&copy;2020 by Maecenas Devs</div>
     </footer>
   );
