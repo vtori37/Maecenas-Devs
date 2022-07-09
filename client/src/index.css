@@ -84,7 +84,7 @@ code {
   color: paleturquoise;
 }
 
-.cards {
+/* .cards {
   display: flex;
   padding: 30px;
   justify-content: center;
@@ -124,7 +124,6 @@ code {
   width: 100%;
   word-break: break-all;
   overflow: auto;
-  /* background-color: orange; */
 }
 
 .card-name {
@@ -134,12 +133,10 @@ code {
 .card-footer {
   text-align: center;
   background-color: darkslategray;
-  /* padding: 13px; */
   border-radius: 22px;
-  /* height: 18px; */
   color: paleturquoise;
   font-size: 20px;
-}
+} */
 
 .contact-page-heading {
   color: paleturquoise;

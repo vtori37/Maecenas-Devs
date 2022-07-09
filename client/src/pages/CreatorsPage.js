@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./CreatorsPage.module.css";
 
 const CreatorsPage = () => {
   const [creators] = useState([
@@ -29,18 +30,18 @@ const CreatorsPage = () => {
   return (
     <div>
       <h1 className="meet-creators">Meet The Creators</h1>
-      <div className="cards">
+      <div className={styles.cards}>
         {creators.map((creator) => {
           return (
             <>
-              <div className="card">
-                <div className="card-body" onClick={handleClick}>
-                  <div className="card-left-portion">
+              <div className={styles.card}>
+                <div className={styles.cardBody} onClick={handleClick}>
+                  <div className={styles.cardLeftPortion}>
                     <div>
                       <img
                         src={creator.image}
                         alt="cover"
-                        className="card-image"
+                        className={styles.cardImage}
                       ></img>
                       <div className="alumni-speciality">
                         <h4 className="">Specialities</h4>
@@ -52,12 +53,12 @@ const CreatorsPage = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="card-right-portion">
-                    <h2 className="card-name"> {creator.name}</h2>
+                  <div className={styles.cardRightPortion}>
+                    <h2 className={styles.cardName}> {creator.name}</h2>
                     <p>{creator.description}</p>
                   </div>
                 </div>
-                <footer className="card-footer">{creator.tier}</footer>
+                <footer className={styles.cardFooter}>{creator.tier}</footer>
               </div>
             </>
           );
