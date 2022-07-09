@@ -2,7 +2,7 @@
 ***
 #### Created by Maecenas Devs
 ## Description 
-![alt text](./assets/Images/.png)
+![alt text](./client/src/assets/images/LandingPage.png)
 
 AskDevs.com is an online platform where alumni of bootcamp programs who are now industry professionals, can provide mentorship to aspiring developers. Creators (alumni developers) can offer up to three tiers of services. Users (apiring developers) can choose to subscribe to Creators depending on the Creator's stack speciality. 
 
@@ -37,7 +37,7 @@ Here is a demonstration of the application.
 [Jonathan Kim](https://github.com/JonathanKim424)
 [Andrew Kim](https://github.com/andrewyk99)
 [Jake Lauterstein](https://github.com/jakelauterstein)
-[Kavya Matena](https://github.com/KavyaMantena)
+[Kavya Mantena](https://github.com/KavyaMantena)
 [Victoria Rice](https://github.com/vtori37)
 
 ## Technology
