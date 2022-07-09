@@ -1,0 +1,53 @@
+.cards {
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 3px solid black;
+  border-radius: 35px;
+  background-color: paleturquoise;
+}
+
+.cardBody {
+  display: flex;
+  padding: 20px;
+  gap: 15px;
+  width: 350px;
+  height: 350px;
+  cursor: pointer;
+}
+
+.cardLeftPortion {
+  padding-left: 3px;
+}
+
+.cardImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.cardRightPortion {
+  width: 100%;
+  word-break: break-all;
+  overflow: auto;
+  /* background-color: orange; */
+}
+
+.cardName {
+  text-align: center;
+}
+
+.cardFooter {
+  text-align: center;
+  background-color: darkslategray;
+  /* padding: 13px; */
+  border-radius: 22px;
+  /* height: 18px; */
+  color: paleturquoise;
+  font-size: 20px;
+}
