@@ -1,35 +1,23 @@
 import React, { useState } from "react";
 
-const CreatorCard = () => {
-  const [creators, setCreators] = useState([
+const CreatorsPage = () => {
+  const [creators] = useState([
     {
-      image: "../assets/images/Emoji.jpeg",
-      name: "Anna Johnson",
-      description: `fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs dsfasdfsadf
-      dsfasdfasdf fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs
-      dsfasdfsadf dsfasdfasdf fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf
-      sdfasdfsdfs dsfasdfsadf dsfasdfasdf
-      fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs dsfasdfsadf
-      dsfasdfasdf fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs
-      dsfasdfsadf dsfasdfasdf fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf
-      sdfasdfsdfs dsfasdfsadf dsfasdfasdf
-      fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs dsfasdfsadf
-      dsfasdfasdf fjsjdfkahsdfk;uhasdkufhauskdhfkuashdf sdfasdfsdfs
-      asdfiejfalksdjflkjasldkfjlkasdjfksadjf
-      asjdfklasjdfkljasdlkfjlksdjf
-      lsadjfljasdlkfjl;asdfiejfalksdjflkjasldkfjlkasdjfksadjfsjdfljasldfjoiasjdfijsoidfj
-      dkfa;skdjfjkasdhf;jasdfljasdf hdsfljkasdlfjasldfhjo;iasdjf
-      ;osdjflajsdkfjas;ldfj;liasdjfoiajsdf ksdjf;lasdjf;lsjdfl
+      image: "../assets/images/female-emoji.jpeg",
+      name: "Anna J",
+      description: `Creative UI Developer with 2 years of experince. Completed 10+ UI Developments.
+      Partnered with data science to develop a frontend for a product recommendation engine that increased user
+      time on a page by 5 minutes.
       `,
-      specialities: ["Javascript", "CSS"],
+      specialities: ["Javascript", "CSS", "React", "Angular"],
       tier: "Tier 1",
     },
     {
-      image: "../assets/images/Emoji.jpeg",
+      image: "../assets/images/female-emoji.jpeg",
       name: "Peter S",
       description: `something very unsusal is happening in the townn of hawkins
       `,
-      specialities: ["React", "Express"],
+      specialities: ["React", "Express", "Javascript"],
       tier: "Tier 2",
     },
   ]);
@@ -50,7 +38,7 @@ const CreatorCard = () => {
                   <div className="card-left-portion">
                     <div>
                       <img
-                        src={require("../assets/images/Emoji.jpeg")}
+                        src={require("../assets/images/female-emoji.jpeg")}
                         alt="cover"
                         className="card-image"
                       ></img>
@@ -79,4 +67,4 @@ const CreatorCard = () => {
   );
 };
 
-export default CreatorCard;
+export default CreatorsPage;
