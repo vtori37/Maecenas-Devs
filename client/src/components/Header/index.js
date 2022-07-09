@@ -24,7 +24,7 @@ function Header() {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="ms-auto">
       <Nav.Link className="me-auto" href="/"><span className='nav-text'>Home</span></Nav.Link>
-      <Nav.Link as={Link} to="/creator"><span className='nav-text'>Creators</span></Nav.Link>
+      <Nav.Link as={Link} to="/creators"><span className='nav-text'>Creators</span></Nav.Link>
         {Auth.loggedIn() ? (
               <>
                 <Nav.Link to="/blogPage">Blog</Nav.Link>

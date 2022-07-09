@@ -7,10 +7,12 @@ import Footer from './components/Footer';
 import About from './pages/About';
 import BlogPage from './pages/BlogPage';
 import Login from './pages/Login';
-import Signup from './pages/Signup'
-// import Creators from './pages/Creators';
-// import Signup from './pages/Signup';
-// import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Contact from '../src/pages/ContactPage';
+import Creators from '../src/pages/CreatorsPage';
+
+
+
 
 
 const httpLink = createHttpLink({
@@ -66,13 +68,17 @@ function App() {
                 path="/signup" 
                 element={<Signup />} 
               />
-              {/* <Route 
-                path="/Creators" 
+              <Route 
+                path="/creators" 
                 element={<Creators />} 
-              />  */}
+              /> 
               <Route 
                 path="/blogPage" 
                 element={<BlogPage />} 
+              /> 
+              <Route 
+                path="/contact" 
+                element={<Contact />} 
               /> 
               {/* Wild card * is used for "No Match" page */}
             </Routes>
