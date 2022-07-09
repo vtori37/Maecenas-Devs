@@ -69,7 +69,7 @@ function App() {
               /> */}
               <Route 
                 path="/blogPage" 
-                element={<BlogPage banana={"Jelly"} spots={"balloon"} />} 
+                element={<BlogPage />} 
               /> 
               {/* Wild card * is used for "No Match" page */}
             </Routes>

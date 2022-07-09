@@ -7,10 +7,10 @@ import "../index.css";
 
 function Login () {
   return (
-  <section className='blog-section'>
-    <div className='containr'>
-      <div className='contains-box'></div>
-      <div className='contains-tabs'>
+  <section className='login-section'>
+    <div className='containr-login'>
+      <div className='login-box'></div>
+      <div className='login-form'>
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address:</Form.Label>
@@ -25,7 +25,6 @@ function Login () {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit

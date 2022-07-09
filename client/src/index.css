@@ -17,8 +17,9 @@
 }
 
 html {
-  /* background: url('../src/assets/images/fiber-optics.jpg') no-repeat center center fixed;  */
-  -webkit-background-size: cover;
+  background: url("../src/assets/images/fiber-optics.jpg") no-repeat center
+    center fixed;
+  -webkit--size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
@@ -136,6 +137,66 @@ border-radius: 8px;
   padding: 15px;
   border-radius: 8px;
   margin-left: -500px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #799abb !important;
+  background-color: #e1f5f4 !important;
+  border-color: #b2c2c1 !important;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: #E3ECEB!important;
+  border-width: 2px;
+}
+
+.nav-link {
+  color: #437C90 !important
+}
+.nav-link:focus, .nav-link:hover {
+  color: #6b446b !important
+}
+
+/* CSS for Login*/
+
+.login-section {
+  min-height: 75vh; /* was 100vh*/
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: linear-gradient(90deg, rgba(67,124,144,1) 27%, rgba(64,166,162,1) 100%);
+}
+
+.containr-login {
+  width: 50%;
+  max-width: 50%;
+  margin:0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+width: 65%;
+height: 500px;
+background: rgb(64,166,162);
+background: radial-gradient(circle, rgba(64,166,162,1) 8%, rgba(64,124,144,1) 52%, rgba(39,86,103,1) 93%);/* background-color: var(--primary); */
+border-radius: 8px;
+}
+
+.login-form {
+  width: 65%;
+  height: 445px;
+  background: rgb(202,219,218);
+  background: linear-gradient(0deg, rgba(202,219,218,0.4990371148459384) 26%, rgba(202,219,218,0.9304096638655462) 89%);
+    /* background-color: var(--quatrinary); */
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+  padding: 15px;
+  border-radius: 8px;
+  margin-left: -400px;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {

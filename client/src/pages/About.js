@@ -7,6 +7,7 @@ import AboutCardImage from '../assets/images/AboutCard.png';
 import Tier1 from '../assets/images/Tier1.jpg';
 import Tier2 from '../assets/images/Tier2.jpg';
 import Tier3 from '../assets/images/Tier3.jpg';
+import '../index.css'
 
 function About() {
   return (
