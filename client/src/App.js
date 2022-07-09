@@ -40,6 +40,7 @@ const client = new ApolloClient({
 //   );
 // }
 function App() {
+  // const [currentPage, setCurrentPage] = useState("About");
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -80,5 +81,4 @@ function App() {
     </ApolloProvider>
   )};
 
-
- export default App;
+export default App;
