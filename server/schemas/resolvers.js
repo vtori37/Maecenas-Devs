@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Creator, BlogPost } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -96,14 +97,34 @@ const resolvers = {
         },
         addReply: async (parent, { blogId, commentId, replyText }, context) => {
             if (context.user) {
-                const updatedBlogPost = await BlogPost.findOneAndUpdate(
-                    { _id: blogId },
-                    { $push: { 'comments.$[element].replies': { replyText, username: context.user.username } } },
-                    { arrayFilters: [{ 'element._id': commentId }], new: true, runValidators: true }
-                );
+                const updatedBlogPost = await BlogPost.findOne({ _id: blogId })
+                    .exec((err, result) => {
+                        const objectId = mongoose.Types.ObjectId(commentId);
+                        const index = result.comments.findIndex(element => {
+                            console.log(element._id);
+                            return element._id === objectId;
+                        });
+                        console.log(index);
+                        result.comments[result.comments.indexOf(commentId)].replies
+                            .push({ replyText, username: context.user.username })
+                        return result.save((err) => {
+                            console.log(result);
+                        })
+                    });
                 return updatedBlogPost;
             }
             throw new AuthenticationError('You need to be logged in!');
+
+
+            // if (context.user) {
+            //     const updatedBlogPost = await BlogPost.findOneAndUpdate(
+            //         { _id: blogId },
+            //         { $push: { 'comments.$[element].replies': { replyText, username: context.user.username } } },
+            //         { arrayFilters: [{ 'element._id': commentId }], new: true, runValidators: true }
+            //     );
+            //     return updatedBlogPost;
+            // }
+            // throw new AuthenticationError('You need to be logged in!');
         }
     }
 };
