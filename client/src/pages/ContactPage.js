@@ -15,7 +15,7 @@ const ContactPage = () => {
                     You can reach me at email:`,
     },
     {
-      image: "../assets/images/male-emoji.jpeg",
+      image: "../assets/images/female-emoji.jpeg",
       name: "Victoria Rice",
       description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
                     You can reach me at email:`,
@@ -42,7 +42,7 @@ const ContactPage = () => {
           return (
             <div className="contact-infos">
               <img
-                src={require("../assets/images/male-emoji.jpeg")}
+                src={contact.image}
                 alt="contact-male-emoji"
                 className="contact-team-image"
               ></img>

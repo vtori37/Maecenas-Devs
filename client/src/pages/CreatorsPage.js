@@ -13,7 +13,7 @@ const CreatorsPage = () => {
       tier: "Tier 1",
     },
     {
-      image: "../assets/images/female-emoji.jpeg",
+      image: "../assets/images/male-emoji.jpeg",
       name: "Peter S",
       description: `something very unsusal is happening in the townn of hawkins
       `,
@@ -38,7 +38,7 @@ const CreatorsPage = () => {
                   <div className="card-left-portion">
                     <div>
                       <img
-                        src={require("../assets/images/female-emoji.jpeg")}
+                        src={creator.image}
                         alt="cover"
                         className="card-image"
                       ></img>
