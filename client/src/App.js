@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import About from './pages/About';
 import BlogPage from './pages/BlogPage';
 import Login from './pages/Login';
+import Signup from './pages/Signup'
 // import Creators from './pages/Creators';
 // import Signup from './pages/Signup';
 // import Home from './pages/Home';
@@ -44,6 +45,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+      <div className="background">
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -60,14 +62,14 @@ function App() {
                 path="/login" 
                 element={<Login />} 
               />
-              {/* <Route 
+              <Route 
                 path="/signup" 
                 element={<Signup />} 
               />
-              <Route 
+              {/* <Route 
                 path="/Creators" 
                 element={<Creators />} 
-              /> */}
+              />  */}
               <Route 
                 path="/blogPage" 
                 element={<BlogPage />} 
@@ -77,6 +79,7 @@ function App() {
           <Footer />
           </div>
         </div>
+      </div>
       </Router>
     </ApolloProvider>
   )};
