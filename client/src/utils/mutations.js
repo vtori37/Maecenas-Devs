@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_SUB = gql`
-  mutation addSub($creatorName: String!, blogText: String!) {
+  mutation addSub($creatorName: String!, $blogText: String!) {
     addSub(creatorName: $creatorName, blogText: $blogText) {
       _id
       creatorName
