@@ -42,7 +42,6 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        comments: [Comment]
     }
 
     type Auth {
@@ -61,8 +60,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
         addCreator(creatorName: String!, about: String!, specialties: String!, url: String!): Creator
         addSub(creatorName: String!): Creator
         addBlogPost(creatorName: String!, blogText: String!): BlogPost
