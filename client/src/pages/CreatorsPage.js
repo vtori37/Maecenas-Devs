@@ -1,69 +1,82 @@
 import React, { useState } from "react";
+import { useQuery, useMutation} from '@apollo/client';
+import { QUERY_CREATORS } from '../utils/queries';
 import styles from "./CreatorsPage.module.css";
+import { ADD_SUB } from "../utils/mutations";
+import Auth from '../utils/auth';
 
 const CreatorsPage = () => {
-  const [creators] = useState([
-    {
-      image: "../assets/images/female-emoji.jpeg",
-      name: "Anna J",
-      description: `Creative UI Developer with 2 years of experince. Completed 10+ UI Developments.
-      Partnered with data science to develop a frontend for a product recommendation engine that increased user
-      time on a page by 5 minutes.
-      `,
-      specialities: ["Javascript", "CSS", "React", "Angular"],
-      tier: "Tier 1",
-    },
-    {
-      image: "../assets/images/male-emoji.jpeg",
-      name: "Peter S",
-      description: `something very unsusal is happening in the townn of hawkins
-      `,
-      specialities: ["React", "Express", "Javascript"],
-      tier: "Tier 2",
-    },
-  ]);
+  const { loading, data } = useQuery(QUERY_CREATORS);
+  const creators = data?.creators || [];
+  const [addSub, { error }] = useMutation(ADD_SUB);
 
   const handleClick = () => {
     console.log("clicked");
   };
 
+  const tierHandleClick = (creatorName) => {
+    console.log(creatorName);
+    // try {
+    //   await addSub({
+    //     variables: { creatorName: creatorName }
+    //   });
+    // } catch (e) {
+    //   console.error(e);
+    // }
+  };
+
+  let tierButton;
+  if (Auth.loggedIn()) {
+    tierButton = `{creator.tier.map((tier) => {
+      return <div key={tier.toString()} onClick={tierHandleClick.bind(this, creator.creatorName)}>{tier}</div>
+    })}`;
+  } else {
+    tierButton = <></>;
+  }
+
   return (
     <div>
       <h1 className="meet-creators">Meet The Creators</h1>
-      <div className={styles.cards}>
-        {creators.map((creator) => {
-          return (
-            <>
-              <div className={styles.card}>
-                <div className={styles.cardBody} onClick={handleClick}>
-                  <div className={styles.cardLeftPortion}>
-                    <div>
-                      <img
-                        src={creator.image}
-                        alt="cover"
-                        className={styles.cardImage}
-                      ></img>
-                      <div className="alumni-speciality">
-                        <h4 className="">Specialities</h4>
-                        <ul>
-                          {creator.specialities.map((speciality) => {
-                            return <li>{speciality}</li>;
-                          })}
-                        </ul>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className={styles.cards}>
+          {creators.map((creator) => {
+            return (
+              //<>
+                <div className={styles.card} key={creator._id}>
+                  <div className={styles.cardBody} onClick={handleClick}>
+                    <div className={styles.cardLeftPortion}>
+                      <div>
+                        <img
+                          src={creator.image}
+                          alt="cover"
+                          className={styles.cardImage}
+                        ></img>
+                        <div className="alumni-speciality">
+                          <h4 className="">Specialties</h4>
+                          <ul>
+                            {creator.specialties.map((specialty) => {
+                              return <li key={specialty.toString()}>{specialty}</li>;
+                            })}
+                          </ul>
+                        </div>
                       </div>
                     </div>
+                    <div className={styles.cardRightPortion}>
+                      <h2 className={styles.cardName}> {creator.creatorName}</h2>
+                      <p>{creator.about}</p>
+                    </div>
                   </div>
-                  <div className={styles.cardRightPortion}>
-                    <h2 className={styles.cardName}> {creator.name}</h2>
-                    <p>{creator.description}</p>
-                  </div>
+                  <footer className={styles.cardFooter}>
+                    {tierButton}
+                  </footer>
                 </div>
-                <footer className={styles.cardFooter}>{creator.tier}</footer>
-              </div>
-            </>
-          );
-        })}
-      </div>
+              //</>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

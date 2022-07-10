@@ -14,8 +14,10 @@ const typeDefs = gql`
         _id: ID
         creatorName: String
         about: String
-        specialties: String
+        specialties: [String]
+        image: String
         url: String
+        tier: [String]
         tier1: [User]
         tier2: [User]
         tier3: [User]
