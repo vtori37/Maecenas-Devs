@@ -1,13 +1,14 @@
 // Jake code
-
 import React, { Component } from "react";
+import '../index.css'
 export default class Login extends Component {
     render() {
         return (
-          <div className="auth-wrapper">
-          <div className="auth-inner">
-            <form>
-            <h3>Sign In</h3>
+          <div className="auth-wrapper login-section">
+          <div className="auth-inner containr-login">
+            <div className="login-box "></div>
+            <form className="login-form">
+            <h3>Login</h3>
             <div className="mb-3">
               <label>Email address</label>
               <input
@@ -38,12 +39,12 @@ export default class Login extends Component {
             </div>
             <div className="d-grid">
               <button type="submit" className="btn btn-primary">
-                Submit
+                Sign In
               </button>
             </div>
           </form>
           </div>
-          </div>
+        </div>
         );
     }
 }

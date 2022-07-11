@@ -60,11 +60,11 @@ function App() {
                 path="/" 
                 element={<Home />} 
               /> */}
-              <Route 
-                path="/login" 
+              <Route
+                path="/login"  
                 element={<Login />} 
               />
-              <Route 
+              <Route
                 path="/signup" 
                 element={<Signup />} 
               />
@@ -82,8 +82,8 @@ function App() {
               /> 
               {/* Wild card * is used for "No Match" page */}
             </Routes>
-          <Footer />
           </div>
+          <Footer />
         </div>
       </div>
       </Router>

@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -101,13 +101,19 @@ code {
     monospace;
 }
 
+.contents {
+  margin: 30px;
+  margin-top: -50px;
+}
+
 .footer {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0px;
   right: 0;
+  width: 100%;
+  height: 4rem;
 }
-
 /* CSS for Blog*/
 
 .blog-section {
@@ -169,8 +175,13 @@ border-radius: 8px;
 }
 
 /* CSS for Login*/
+.auth-inner {
+  background: 0 !important;
+}
 
 .login-section {
+  margin-top: -50px;
+  margin-bottom: 50px;
   min-height: 75vh; /* was 100vh*/
   width: 100%;
   display: flex;
@@ -189,7 +200,7 @@ border-radius: 8px;
 }
 
 .login-box {
-width: 65%;
+width: 100%;
 height: 500px;
 background: rgb(64,166,162);
 background: radial-gradient(circle, rgba(64,166,162,1) 8%, rgba(64,124,144,1) 52%, rgba(39,86,103,1) 93%);/* background-color: var(--primary); */
@@ -197,7 +208,7 @@ border-radius: 8px;
 }
 
 .login-form {
-  width: 65%;
+  width: 90%;
   height: 445px;
   background: rgb(202,219,218);
   background: linear-gradient(0deg, rgba(202,219,218,0.4990371148459384) 26%, rgba(202,219,218,0.9304096638655462) 89%);
@@ -207,7 +218,7 @@ border-radius: 8px;
   justify-content: center; */
   padding: 15px;
   border-radius: 8px;
-  margin-left: -400px;
+  margin-left: -325px;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
@@ -346,7 +357,6 @@ border-radius: 8px;
 }
 .auth-inner {
   width: 450px;
-  margin: auto;
   background: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
@@ -388,7 +398,6 @@ border-radius: 8px;
     .containr {
       flex-direction: column;
       width: 100%;
-      margin: 35px;
     }
     .contains-box {
       width: 100%;
@@ -400,7 +409,6 @@ border-radius: 8px;
       margin-top: -475px;
     }
   }
-  
   @media only screen and (max-width: 992px) {
     .containr {
       flex-direction: column;
@@ -421,7 +429,7 @@ border-radius: 8px;
     .containr {
       flex-direction: column;
       width: 100%;
-      margin: 35px;
+      
     }
     .contains-box {
       width: 100%;
@@ -432,4 +440,59 @@ border-radius: 8px;
       margin: 0;
       margin-top: -475px;
     }
+  }
+
+  @media only screen and (min-width: 992px) {
+ 
+    .containr-login {
+      flex-direction: column;
+        width: 90%;
+        margin: 35px;
+    }
+  
+    .login-form {
+      width: 80%;
+      margin: 0;
+      margin-top: -475px;
+
+    }
+   }
+
+  @media only screen and (min-width: 660px) {
+ 
+    .containr-login {
+      flex-direction: column;
+        width: 300px;
+        margin: 35px;
+    }
+  
+    .login-box {
+      width: 300px
+    }
+    .login-form {
+      width: 250px;
+      margin: 0;
+      margin-top: -475px;
+
+    }
+   }
+   
+  @media only screen and (min-width: 305px) {
+    .containr-login {
+      flex-direction: column;
+      width: 300px;
+      height: 550px;
+    }
+  
+    .login-box {
+      width: 300px;
+      height: 550px;
+    }
+    .login-form {
+      width: 250px;
+      margin: 0;
+      margin-top: -475px;
+
+    }
+    
   }

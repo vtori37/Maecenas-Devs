@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import '../index.css'
 export default class SignUp extends Component {
     render() {
         return (
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <form>
+          <div className="auth-wrapper login-section">
+          <div className="auth-inner containr-login">
+            <div className="login-box "></div>
+            <form className="login-form">
             <h3>Sign Up</h3>
-
             <div className="mb-3">
               <label>Email address</label>
               <input
