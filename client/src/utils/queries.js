@@ -11,10 +11,12 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_USERS = gql`
-    query user($username: String) {
-        _id
-        username
-        email
+    query users($username: String) {
+        users(username: $username) {
+            _id
+            username
+            email
+        }
     }
 `;
 
@@ -29,25 +31,29 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_CREATORS = gql`
-    query user($creatorName: String!) {
-        user(creatorName: $creatorName) {
+    {
+        creators {
             _id
             creatorName
             about
             specialties
+            image
             url
+            tier
         }    
     }
 `;
 
 export const QUERY_CREATOR = gql`
-    query creators($creatorName: String!) {
+    query creator($creatorName: String!) {
         creator(creatorName: $creatorName) {
             _id
             creatorName
             about
             specialties
+            image
             url
+            tier
         }
     }
 `;

@@ -11,7 +11,13 @@ const creatorSchema = new Schema(
             type: String,
             required: true
         },
-        specialties: {
+        specialties: [
+            {
+                type: String,
+                required: true
+            }
+        ],
+        image: {
             type: String,
             required: true
         },
@@ -19,6 +25,12 @@ const creatorSchema = new Schema(
             type: String,
             required: true
         },
+        tier: [
+            {
+                type: String,
+                required: true
+            }
+        ],
         tier1: [
             {
                 type: Schema.Types.ObjectId,
