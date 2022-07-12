@@ -49,15 +49,30 @@ export const QUERY_CREATORS = gql`
 `;
 
 export const QUERY_CREATOR = gql`
-    query creator($creatorName: String!) {
-        creator(creatorName: $creatorName) {
+    query creator($id: ID!) {
+        creator(_id: $id) {
             _id
             creatorName
-            about
-            specialties
-            image
-            url
-            tier
+            blogPosts {
+                _id
+                blogTitle
+                creatorName
+                createdAt
+                blogText
+                comments {
+                    _id
+                    commentText
+                    createdAt
+                    username
+                    replies {
+                        _id
+                        replyText
+                        createdAt
+                        username
+                    }
+                }
+                commentCount
+            }
         }
     }
 `;

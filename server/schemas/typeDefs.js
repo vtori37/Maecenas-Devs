@@ -4,6 +4,7 @@ const typeDefs = gql`
     type BlogPost {
         _id: ID
         creatorName: String
+        blogTitle: String
         createdAt: String
         blogText: String
         comments: [Comment]
@@ -56,7 +57,7 @@ const typeDefs = gql`
         users: [User]
         user(username: String!): User
         creators: [Creator]
-        creator(creatorName: String!): Creator
+        creator(_id: ID!): Creator
         blogposts(creatorName: String): [BlogPost]
         blogpost(_id: ID!): BlogPost
     }
@@ -66,7 +67,7 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addCreator(creatorName: String!, about: String!, specialties: String!, url: String!): Creator
         addSub(creatorName: String!): Creator
-        addBlogPost(creatorName: String!, blogText: String!): BlogPost
+        addBlogPost(creatorName: String!, blogTitle: String!, blogText: String!): BlogPost
         addComment(blogId: ID!, commentText: String!): BlogPost
         addReply(blogId: ID!, commentId: ID!, replyText: String!): BlogPost
     }

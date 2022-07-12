@@ -7,6 +7,10 @@ const blogPostSchema = new Schema(
             type: String,
             required: true
         },
+        blogTitle: {
+            type: String,
+            required: true
+        },
         createdAt: {
             type: Date,
             default: Date.now,
