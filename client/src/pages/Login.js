@@ -1,12 +1,9 @@
 // Jake code
 
 import React, { useState } from "react";
-import { Form } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-
-
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: ''});
@@ -23,6 +20,7 @@ const Login = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
 
     try {
       const { data } = await login({
@@ -49,9 +47,11 @@ const Login = (props) => {
                 <label>Email address</label>
                 <input
                   type="email"
+                  name="email"
                   className="form-control"
                   placeholder="Enter email"
-                  defaultValue={formState.email}
+                  id="email"
+                  value={formState.email}
                   onChange={handleChange}
                 />
               </div>
@@ -59,9 +59,11 @@ const Login = (props) => {
                 <label>Password</label>
                   <input
                     type="password"
+                    name="password"
                     className="form-control"
                     placeholder="Enter password"
-                    defaultValue={formState.password}
+                    id="password"
+                    value={formState.password}
                     onChange={handleChange}
                   />
               </div>
