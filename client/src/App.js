@@ -2,6 +2,7 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './pages/About';
@@ -72,10 +73,9 @@ function App() {
                 path="/creators" 
                 element={<Creators />} 
               /> 
-              <Route 
-                path="/blogPage" 
-                element={<BlogPage />} 
-              /> 
+              <Route path="blogPage">
+                <Route path=":creatorId" element={<BlogPage />} />
+              </Route>
               <Route 
                 path="/contact" 
                 element={<Contact />} 

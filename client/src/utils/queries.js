@@ -40,6 +40,10 @@ export const QUERY_CREATORS = gql`
             image
             url
             tier
+            tier1 {
+                _id
+                username
+            }
         }    
     }
 `;

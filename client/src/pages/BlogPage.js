@@ -6,12 +6,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import { useParams } from 'react-router-dom';
+
 import '../index.css'
 
 
-function BlogPage() {
-  
-  
+const BlogPage = () => {
+  let { creatorId } = useParams();
+  console.log(creatorId);
     return (
       <section className='blog-section'>
         <div className='containr'>
