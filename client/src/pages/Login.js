@@ -65,7 +65,7 @@ const Login = (props) => {
             placeholder="Enter password"
             name="password"
             id="password"
-            value={formState.email}
+            value={formState.password}
             onChange={handleChange}
           />
         </div>
