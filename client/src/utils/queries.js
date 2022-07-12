@@ -44,6 +44,7 @@ export const QUERY_CREATORS = gql`
                 _id
                 username
             }
+            subscriberCount
         }    
     }
 `;

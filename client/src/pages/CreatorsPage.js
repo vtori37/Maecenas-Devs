@@ -57,41 +57,40 @@ const CreatorsPage = () => {
         <div className={styles.cards}>
           {creators.map((creator) => {
             return (
-              //<>
-                <div className={styles.card} key={creator._id}>
-                  <Link to={{ pathname: `/blogPage/${creator._id}` }} style={{ textDecoration: 'none', color: '#000000' }}>
-                    <div className={styles.cardBody}>
-                      <div className={styles.cardLeftPortion}>
-                        <div>
-                          <img
-                            src={creator.image}
-                            alt="cover"
-                            className={styles.cardImage}
-                          ></img>
-                          <div className="alumni-speciality">
-                            <h4 className="">Specialties</h4>
-                            <ul>
-                              {creator.specialties.map((specialty) => {
-                                return <li key={specialty.toString()}>{specialty}</li>;
-                              })}
-                            </ul>
-                          </div>
+              <div className={styles.card} key={creator._id}>
+                <Link to={{ pathname: `/blogPage/${creator._id}` }} style={{ textDecoration: 'none', color: '#000000' }}>
+                  <div className={styles.cardBody}>
+                    <div className={styles.cardLeftPortion}>
+                      <div>
+                        <img
+                          src={creator.image}
+                          alt="cover"
+                          className={styles.cardImage}
+                        ></img>
+                        <div className="alumni-speciality">
+                          <h4 className="">Specialties</h4>
+                          <ul>
+                            {creator.specialties.map((specialty) => {
+                              return <li key={specialty.toString()}>{specialty}</li>;
+                            })}
+                          </ul>
+                          <p>Subscribers: {creator.subscriberCount}</p>
                         </div>
                       </div>
-                      <div className={styles.cardRightPortion}>
-                        <h2 className={styles.cardName}> {creator.creatorName}</h2>
-                        <p style={{ wordBreak: 'keep-all' }}>{creator.about}</p>
-                      </div>
                     </div>
-                  </Link>
-                  <footer className={styles.cardFooter}>
-                    {Auth.loggedIn()
-                      ? <TierLoggedIn props={creator} />
-                      : <></>
-                    }
-                  </footer>
-                </div>
-              //</>
+                    <div className={styles.cardRightPortion}>
+                      <h2 className={styles.cardName}> {creator.creatorName}</h2>
+                      <p style={{ wordBreak: 'keep-all' }}>{creator.about}</p>
+                    </div>
+                  </div>
+                </Link>
+                <footer className={styles.cardFooter}>
+                  {Auth.loggedIn()
+                    ? <TierLoggedIn props={creator} />
+                    : <></>
+                  }
+                </footer>
+              </div>
             );
           })}
         </div>

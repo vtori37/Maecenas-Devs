@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const dateFormat = require('../utils/dateFormat');
 
 const replySchema = new Schema(
     {
@@ -12,6 +12,7 @@ const replySchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: timestamp => dateFormat(timestamp)
             // If used, need to format
         },
         username: {
@@ -32,6 +33,7 @@ const commentSchema = new Schema (
         createdAt: {
             type: Date,
             default: Date.now,
+            get: timestamp => dateFormat(timestamp)
             // If used, need to format
         },
         username: {
@@ -42,7 +44,8 @@ const commentSchema = new Schema (
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         }
     }
 );

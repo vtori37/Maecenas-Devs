@@ -1,27 +1,23 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_CREATOR } from '../utils/queries';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import '../index.css'
-
+import Auth from '../utils/auth';
+import { QUERY_CREATOR } from '../utils/queries';
 
 const BlogPage = () => {
   const { id: creatorId } = useParams();
   const { loading, data } = useQuery(QUERY_CREATOR, {
     variables: {id: creatorId}
   });
-
   const creator = data?.creator || {};
-  console.log(creator.blogPosts);
-
   return (
     <div>
       {loading ? (
@@ -30,7 +26,7 @@ const BlogPage = () => {
         <div>
           {creator.blogPosts.map((post) => {
             return (
-              <section className='blog-section'>
+              <section className='blog-section' key={post._id}>
                 <div className='containr'>
                   <div className='contains-box'></div>
                   <div className='contains-tabs'>
@@ -41,25 +37,48 @@ const BlogPage = () => {
                         <p>{post.blogText}</p>
                         <p>Comment Count: {post.commentCount}</p>
                       </Tab>
-                      <Tab eventKey="Comments" title="Comments">
-                      <h4> Hi </h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia assumenda dolore reprehenderit ullam blanditiis ex sapiente pariatur tempore incidunt facilis?</p>
-                      <h4> Yuh </h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia assumenda dolore reprehenderit ullam blanditiis ex sapiente pariatur tempore incidunt facilis?</p>
-                        <InputGroup className="mb-3">
-                          <Form.Control
-                            placeholder="Recipient's username"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                          />
-                          <Button variant="outline-secondary" id="button-addon2">
-                            Button
-                          </Button>
-                        </InputGroup>
-                      </Tab>
-                      {/* <Tab eventKey="Author" title="Author" disabled>
-                  
-                      </Tab> */}
+                      {Auth.loggedIn()
+                        ?
+                          <Tab eventKey="Comments" title="Comments">
+                            {post.comments.map((comment) => {
+                              return(
+                                <div key={comment._id}>
+                                  <p>{comment.commentText}</p>
+                                  <p>Created by: {comment.username} at {comment.createdAt}</p>
+                                  {comment.replies.map((reply) => {
+                                    return (
+                                      <div key={reply._id}>
+                                        <p>{reply.replyText}</p>
+                                        <p>Created by: {reply.username} at {reply.createdAt}</p>
+                                      </div>
+                                    );
+                                  })}
+                                  <InputGroup className="mb-3">
+                                    <Form.Control
+                                      placeholder="Add a reply!"
+                                      aria-label="Add reply"
+                                      aria-describedby="add-reply"
+                                    />
+                                    <Button variant="outline-secondary" id="btn-reply" type="submit">
+                                      Reply
+                                    </Button>
+                                  </InputGroup>
+                                </div>
+                              );
+                            })}
+                            <InputGroup className="mb-3">
+                              <Form.Control
+                                placeholder="Add a comment!"
+                                aria-label="Add comment"
+                                aria-describedby="add-comment"
+                              />
+                              <Button variant="outline-secondary" id="btn-comment" type="submit">
+                                Comment
+                              </Button>
+                            </InputGroup>
+                          </Tab>
+                        : <></>
+                      }
                     </Tabs>
                   </div>
                 </div>
@@ -74,44 +93,3 @@ const BlogPage = () => {
 
 
 export default BlogPage;
-
-// import { useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
-// import { QUERY_BLOGPOST } from '../utils/queries';
-
-
-// const BlogPost = () => {
-//   const { id: blogPostId } = useParams();
-
-//   const { loading, data } = useQuery(QUERY_BLOGPOST, {
-//     variables: { id: blogPostId },
-//   });
-
-//   const blogPost = data?.blogPost || {};
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-  // //blogPost.map
-  
-  // return (
-  //   <div>
-  //     <div className="card mb-3">
-  //       <p className="card-header">
-  //         <span style={{ fontWeight: 700 }} className="text-light">
-  //           {blogPost.username}
-  //         </span>{' '}
-  //         blogPost on {blogPost.createdAt}
-  //       </p>
-  //       <div className="card-body">
-  //         <p>{blogPost.blogPostText}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-// };
-
-//blog Post, comment texts form users, replies to comments
-
-// export default BlogPost;
