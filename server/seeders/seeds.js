@@ -6,19 +6,23 @@ db.once('open', async () => {
 
     const blogPosts = await BlogPost.insertMany([
         { 
-            creatorName: "Beginner's Guide to HTML",
+            creatorName: "Anna J",
+            blogTitle: "Intro to HTML",
             blogText: "Just getting started?"
         },
         {
-            creatorName: "Beginner's Guide to CSS!",
+            creatorName: "Peter S",
+            blogTitle: "Intro to CSS",
             blogText: "CSS is how to style your page!!!"
         },
         {
-            creatorName: "Beginner's Guide to React!",
+            creatorName: "Grace P",
+            blogTitle: "Intro to React",
             blogText: "React will change how you see frontend forever!!!"
         },
         {
             creatorName: "Jacob B",
+            blogTitle: "Intro to blah blah",
             blogText: "Blah blah blah blah"
         }
     ]);

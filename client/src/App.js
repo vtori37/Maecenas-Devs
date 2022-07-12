@@ -74,7 +74,7 @@ function App() {
                 element={<Creators />} 
               /> 
               <Route path="blogPage">
-                <Route path=":creatorId" element={<BlogPage />} />
+                <Route path=":id" element={<BlogPage />} />
               </Route>
               <Route 
                 path="/contact" 

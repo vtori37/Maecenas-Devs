@@ -26,8 +26,8 @@ const resolvers = {
                 .populate('tier1')
                 .populate('blogPosts');
         },
-        creator: async (parent, { creatorName }) => {
-            return Creator.findOne({ creatorName })
+        creator: async (parent, { _id }) => {
+            return Creator.findById( _id )
                 .select('-__v')
                 .populate('tier1')
                 .populate('blogPosts');
@@ -74,8 +74,8 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addBlogPost: async (parent, { creatorName, blogText }) => {
-            const blogpost = await BlogPost.create({ creatorName, blogText });
+        addBlogPost: async (parent, { creatorName, blogText, blogTitle }) => {
+            const blogpost = await BlogPost.create({ creatorName, blogText, blogTitle });
             await Creator.findOneAndUpdate(
                 { creatorName: creatorName },
                 { $push: { blogPosts: blogpost._id } },
