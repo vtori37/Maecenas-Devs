@@ -11,10 +11,6 @@ const CreatorsPage = () => {
   const creators = data?.creators || [];
   const [addSub, { error }] = useMutation(ADD_SUB);
 
-  const handleClick = () => {
-    console.log("clicked");
-  };
-
   const tierHandleClick = async (creatorName, tier) => {
     if (tier !== 'Tier 1') {
       alert('Only Tier 1 is available!');
@@ -63,7 +59,7 @@ const CreatorsPage = () => {
             return (
               //<>
                 <div className={styles.card} key={creator._id}>
-                  <Link to={{ pathname: `/blogPage/${creator._id}` }}>
+                  <Link to={{ pathname: `/blogPage/${creator._id}` }} style={{ textDecoration: 'none', color: '#000000' }}>
                     <div className={styles.cardBody}>
                       <div className={styles.cardLeftPortion}>
                         <div>
@@ -84,7 +80,7 @@ const CreatorsPage = () => {
                       </div>
                       <div className={styles.cardRightPortion}>
                         <h2 className={styles.cardName}> {creator.creatorName}</h2>
-                        <p>{creator.about}</p>
+                        <p style={{ wordBreak: 'keep-all' }}>{creator.about}</p>
                       </div>
                     </div>
                   </Link>
