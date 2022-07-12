@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import { useParams } from 'react-router-dom';
@@ -11,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css'
 import Auth from '../utils/auth';
 import { ADD_COMMENT, ADD_REPLY } from '../utils/mutations';
-import { QUERY_BLOGPOST, QUERY_CREATOR } from '../utils/queries';
+import { QUERY_CREATOR } from '../utils/queries';
 
 const BlogPage = () => {
   const { id: creatorId } = useParams();
@@ -45,6 +44,23 @@ const BlogPage = () => {
     }
   };
 
+  const [repText, setRepText] = useState('');
+  const [charRepCount, setCharRepCount] = useState(0);
+  const [addReply, { repError }] = useMutation(ADD_REPLY);
+  const repHandleChange = (event) => {
+    if (event.target.value.length <= 280) {
+      setRepText(event.target.value);
+      setCharRepCount(event.target.value.length);
+    }
+  };
+  const repHandleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event.target.id)
+    let text = event.target.id;
+    const arr = text.split("_");
+    console.log(arr);
+  }
+
   return (
     <div>
       {loading ? (
@@ -68,6 +84,7 @@ const BlogPage = () => {
                         ?
                           <Tab eventKey="Comments" title="Comments">
                             {post.comments.map((comment) => {
+                              const repId = post._id + '_' + comment._id;
                               return(
                                 <div key={comment._id}>
                                   <p>{comment.commentText}</p>
@@ -80,16 +97,23 @@ const BlogPage = () => {
                                       </div>
                                     );
                                   })}
-                                  <InputGroup className="mb-3">
-                                    <Form.Control
-                                      placeholder="Add a reply!"
-                                      aria-label="Add reply"
-                                      aria-describedby="add-reply"
-                                    />
-                                    <Button variant="outline-secondary" id="btn-reply" type="submit">
+                                  <p>
+                                    Character Count: {charRepCount}/280
+                                    {repError && <span>Something went wrong...</span>}
+                                  </p>
+                                  <Form className="mb-3" onSubmit={repHandleFormSubmit} id={repId}>
+                                    <Form.Group controlId="formReply">
+                                      <Form.Control
+                                        as="textarea"
+                                        placeholder="Add a reply!"
+                                        value={repText}
+                                        onChange={repHandleChange}
+                                      />
+                                    </Form.Group>
+                                    <Button variant="outline-secondary" type="submit">
                                       Reply
                                     </Button>
-                                  </InputGroup>
+                                  </Form>
                                 </div>
                               );
                             })}
