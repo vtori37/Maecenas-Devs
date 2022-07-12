@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import '../index.css'
 import Auth from '../utils/auth';
-import { QUERY_CREATOR } from '../utils/queries';
+import { ADD_COMMENT, ADD_REPLY } from '../utils/mutations';
+import { QUERY_BLOGPOST, QUERY_CREATOR } from '../utils/queries';
 
 const BlogPage = () => {
   const { id: creatorId } = useParams();
@@ -18,6 +19,32 @@ const BlogPage = () => {
     variables: {id: creatorId}
   });
   const creator = data?.creator || {};
+
+  const [commText, setCommText] = useState('');
+  const [charCommCount, setCharCommCount] = useState(0);
+  const [addComment, { commError }] = useMutation(ADD_COMMENT);
+  const commHandleChange = (event) => {
+    if (event.target.value.length <= 280) {
+      setCommText(event.target.value);
+      setCharCommCount(event.target.value.length);
+    }
+  };
+  const commHandleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await addComment({
+        variables: {
+          blogId: event.target.id,
+          commentText: commText
+        }
+      });
+      setCommText('');
+      setCharCommCount(0);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div>
       {loading ? (
@@ -66,16 +93,25 @@ const BlogPage = () => {
                                 </div>
                               );
                             })}
-                            <InputGroup className="mb-3">
-                              <Form.Control
-                                placeholder="Add a comment!"
-                                aria-label="Add comment"
-                                aria-describedby="add-comment"
-                              />
-                              <Button variant="outline-secondary" id="btn-comment" type="submit">
-                                Comment
-                              </Button>
-                            </InputGroup>
+                            <div>
+                              <p>
+                                Character Count: {charCommCount}/280
+                                {commError && <span>Something went wrong...</span>}
+                              </p>
+                              <Form className="mb-3" onSubmit={commHandleFormSubmit} id={post._id}>
+                                <Form.Group controlId="formComment">
+                                  <Form.Control
+                                    as="textarea"
+                                    placeholder="Add a comment!"
+                                    value={commText}
+                                    onChange={commHandleChange}
+                                  />
+                                </Form.Group>
+                                <Button variant="outline-secondary" type="submit">
+                                  Comment
+                                </Button>
+                              </Form>
+                            </div>
                           </Tab>
                         : <></>
                       }
