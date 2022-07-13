@@ -75,7 +75,6 @@ function App() {
                 path="/contact" 
                 element={<Contact />} 
               /> 
-              {/* Wild card * is used for "No Match" page */}
             </Routes>
           </div>
           <Footer />
