@@ -3,34 +3,35 @@ import React, { useState } from "react";
 const ContactPage = () => {
   const [contacts] = useState([
     {
-      image: "../assets/images/male-emoji.jpeg",
+      image: "../assets/images/jonathan.png",
       name: "Jonathan Kim",
-      description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
-                    You can reach me at email:`,
+      description: `Hi, I am student in UT Austin's full-stack web developer course.
+                    Contact me: vizard424@yahoo.com | https://github.com/JonathanKim424`,
     },
     {
-      image: "../assets/images/male-emoji.jpeg",
+      image: "../assets/images/andrew.png",
       name: "Andrew Kim",
-      description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
-                    You can reach me at email:`,
+      description: `Hi, I am student in UT Austin's full-stack web developer course.
+                   Contact me: andrewyk99@hotmail.com | https://github.com/andrewyk99`,
     },
     {
       image: "../assets/images/tori.png",
       name: "Victoria Rice",
-      description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
-                    You can reach me at email:`,
+      description: `Hi, I am student in UT Austin's full-stack web developer course.
+                   Contact me: vrice360@gmail.com | https://github.com/vtori37`,
     },
     {
-      image: "../assets/images/male-emoji.jpeg",
+      image: "../assets/images/jake.png",
       name: "Jake Lauterstein",
-      description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
-                    You can reach me at email:`,
+      description: `Hi, I am student in UT Austin's full-stack web developer course.
+                   Contact me: jakelauterstein@gmail.com | https://github.com/jakelauterstein`,
     },
     {
-      image: "../assets/images/female-emoji.jpeg",
+      image: "../assets/images/kavya.png",
       name: "Kavya Mantena",
-      description: `Hi, I am student in full-stack webdeveloper course at UT Austin.
-                    You can reach me at email:`,
+      description: `Hi, I am student in UT Austin's full-stack web developer course.
+                   Contact me: kavya.mantena26@gmail.com | https://github.com/KavyaMantena
+                    `,
     },
   ]);
 
