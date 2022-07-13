@@ -23,15 +23,8 @@ AskDevs.com is an online platform where alumni of bootcamp programs who are now 
 Here is a link to the live website:
 [   ]()
 
-## Installation 
-To access the application...
-
 ## Usage
 This project can be used to create...
-
-## Test
-Here is a demonstration of the application.
-
 
 ## Contributors
 [Jonathan Kim](https://github.com/JonathanKim424)
