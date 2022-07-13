@@ -46,7 +46,7 @@ db.once('open', async () => {
         },
         {
             creatorName: "Peter S",
-            about: "Hey there! I'm Peter and I just got my first job after completing the bootcamp! If you have any questions on what I did to land my first job as a developer or designing your projects, I would be happy to help!",
+            about: "Hey there! I'm Peter and I just got my first job after completing the bootcamp! If you have career or design related questions, I am your man!",
             specialties: ["Node.js", "Tailwind", "React"],
             image: "../assets/images/male-emoji.jpeg",
             url: "http://creator2.com",
@@ -58,7 +58,7 @@ db.once('open', async () => {
         },
         {
             creatorName: "Grace P",
-            about: "Hello, my name is Grace! I feel strongest with back end development, so if you feel lost don't hesitate to ask! I will actually be a TA for the bootcamp for the next semester, but I would love to start helping with anyone taking the course now.",
+            about: "Hello, my name is Grace! I feel strongest in back end development, so if you feel lost don't hesitate to ask!",
             specialties: ["MongoDB", "Mongoose", "noSQL"],
             image: "../assets/images/female-emoji.jpeg",
             url: "http://creator3.com",
@@ -70,7 +70,7 @@ db.once('open', async () => {
         },
         {
             creatorName: "Jacob B",
-            about: "Hello, I graduated from the UT Austin web development bootcamp last year and I would love to help anyone who is going through the course right now as well as recent graduates that might want some help getting comfortable with any of the later sections of the course!",
+            about: "Hello, I graduated from the UT Austin web development bootcamp last year. Wrapping both front and back end can be stressful so feel free to reach out!",
             specialties: ["React", "Express", "Javascript"],
             image: "../assets/images/male-emoji.jpeg",
             url: "http://creator4.com",
