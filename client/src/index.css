@@ -117,7 +117,7 @@ code {
 /* CSS for Blog*/
 
 .blog-section {
-  /* min-height: 75vh; */
+  
   width: 100%;
   display: inline-block;
   align-items: center;
@@ -127,6 +127,7 @@ code {
   border-radius: 8px;
   height: auto;
   margin-top: 100px;
+  margin-bottom: 150px;
 }
 
 .containr {

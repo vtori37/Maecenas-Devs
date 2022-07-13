@@ -27,7 +27,6 @@ function Header() {
       <Nav.Link as={Link} to="/creators"><span className='nav-text'>Creators</span></Nav.Link>
         {Auth.loggedIn() ? (
               <>
-                <Nav.Link to="/blogPage">Blog</Nav.Link>
                 <a href="/" onClick={logout}>
                   Logout
                 </a>
