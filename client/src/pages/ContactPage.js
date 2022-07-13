@@ -37,7 +37,7 @@ const ContactPage = () => {
 
   return (
     <section>
-      <h1 className="contact-page-heading">Contact Macenas-Devs</h1>
+      <h1 className="contact-page-heading">Contact Maecenas-Devs</h1>
       <div className="contact-team">
         {contacts.map((contact) => {
           return (
