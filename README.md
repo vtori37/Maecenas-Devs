@@ -1,10 +1,10 @@
-# AskDevs.com
+# MaecenasDevs
 ***
 #### Created by Maecenas Devs
 ## Description 
 ![alt text](./client/src/assets/images/LandingPage.png)
 
-AskDevs.com is an online platform where alumni of bootcamp programs who are now industry professionals, can provide mentorship to aspiring developers. Creators (alumni developers) can offer up to three tiers of services. Users (apiring developers) can choose to subscribe to Creators depending on the Creator's stack speciality. 
+MaecenasDevs is an online platform where alumni of bootcamp programs who are now industry professionals, can provide mentorship to aspiring developers. Creators (alumni developers) can offer up to three tiers of services. Users (apiring developers) can choose to subscribe to Creators depending on the Creator's stack speciality. 
 
 
 ## Table of Contents 
