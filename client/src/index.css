@@ -105,9 +105,12 @@ code {
   margin: 30px;
   margin-top: -50px;
 }
+.spacer {
+  height: 190px;
+} 
 
 .footer {
-  position: fixed;
+  position:fixed;bottom:0;left:0;right:0;height:30px;
   left: 0;
   bottom: 0px;
   right: 0;
