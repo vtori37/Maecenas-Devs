@@ -17,9 +17,8 @@ function About() {
     <Card.Body>
       <Card.Title>Fullstack Bootcamp Alumni Are Only A Click Away</Card.Title>
       <Card.Text>
-        Our goal is to educate and inspire current bootcamp students by sharing our experience and knowledge of the full stack of technologies explored in the context of the modern coding bootcamp! Maecenas Devs is a subscription service with a 
+        Our goal is to educate and inspire current bootcamp students by sharing our experience and knowledge of the full stack of technologies explored in the context of the modern coding bootcamp! Maecenas Devs is a subscription-fueled blog space that aims to support you in understanding the basics and embracing the challenge ahead!
       </Card.Text>
-      <Button variant="primary">Go somewhere</Button>
     </Card.Body>
   </Card>
 

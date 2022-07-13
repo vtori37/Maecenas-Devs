@@ -27,7 +27,6 @@ function Header() {
       <Nav.Link as={Link} to="/creators"><span className='nav-text'>Creators</span></Nav.Link>
         {Auth.loggedIn() ? (
               <>
-                <Nav.Link as={Link} to="/blogPage"><span className='nav-text'>Blog</span></Nav.Link>
                 <Nav.Link as={Link} to="/" className='nav-text'onClick={logout}><span className='nav-text'>Logout</span></Nav.Link>
                 {/* <a href="/" className='nav-text me-auto' onClick={logout}>
                   Logout
