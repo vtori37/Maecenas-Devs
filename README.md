@@ -9,9 +9,6 @@ MaecenasDevs is an online platform where alumni of bootcamp programs who are now
 
 ## Table of Contents 
 * [Website](#Website)
-* [Installation](#Installation)
-* [Usage](#Usage)
-* [Test](#Test)
 * [Contributors](#contributors)
 * [Technology](#technology)
 * [License](license)
@@ -22,9 +19,6 @@ MaecenasDevs is an online platform where alumni of bootcamp programs who are now
 ## Website
 Here is a link to the live website:
 [MaecenasDevs](https://gentle-citadel-11319.herokuapp.com/)
-
-## Usage
-This project can be used to create...
 
 ## Contributors
 [Jonathan Kim](https://github.com/JonathanKim424)
