@@ -56,7 +56,7 @@ If you have any questions or concerns regarding this project, feel free to creat
 
 
 ## License
-Copyright &copy; 2022 Jonathan Kim
+Copyright &copy; 2022 Maecenas Devs
 
 Licensed under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at
 
